@@ -2,13 +2,16 @@
 #include <stdlib.h>
 
 int main(void){
-	int i=10;
-	int *ptr=&i;
-	printf("i=%i, pi:%p\n",i,ptr);
-	(*ptr)++;
-	printf("i=%i, pi:%p\n",i,ptr);
-	*ptr++;
-	printf("i=%i, pi:%p\n",i,ptr);
+	char buffer[8];
+	double *pd;
+	int *pi;
+	pd =(double *)buffer;
+	*pd=3.14;
+	printf("%f\n",*(double*)buffer);
 	
-	return 0;
+	pi=(int *)buffer;
+	*pi=123;
+	*(pi+1)=456;
+	printf("%d %d\n",*(int*)buffer, *((int*)buffer+1));
+	return 0; 
 }
