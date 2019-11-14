@@ -2,16 +2,14 @@
 #include <stdlib.h>
 
 int main(void){
-	char buffer[8];
-	double *pd;
-	int *pi;
-	pd =(double *)buffer;
-	*pd=3.14;
-	printf("%f\n",*(double*)buffer);
+	int i=100;
+	int *p=&i;
+	int **q=&p;
+	*p=200;
+	printf("i = %d, *p = %d, **q = %d\n",i,*p,**q);
 	
-	pi=(int *)buffer;
-	*pi=123;
-	*(pi+1)=456;
-	printf("%d %d\n",*(int*)buffer, *((int*)buffer+1));
-	return 0; 
+	**q=300;
+	printf("i = %d, *p = %d, **q = %d\n",i,*p,**q);
+	
+	return 0;
 }
